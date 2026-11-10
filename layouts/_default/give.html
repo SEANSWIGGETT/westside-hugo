@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "page-hero.html" . }}
+<section class="section">
+  <div class="wrap give-grid">
+    <div class="give-card give-primary">
+      <p class="eyebrow">Online</p>
+      <h2 class="h-lg">Give once or set up a recurring gift</h2>
+      <p>Make a one-time donation, or set up a recurring donation or tithe securely through Church Center.</p>
+      <a class="btn btn-sun btn-lg" href="{{ site.Params.givingUrl }}" rel="noopener">Give now</a>
+    </div>
+    <div class="give-card">
+      {{ with resources.Get "images/church-center.png" }}<img class="app-icon" src="{{ .RelPermalink }}" width="72" height="72" alt="">{{ end }}
+      <p class="eyebrow">On your phone</p>
+      <h2 class="h-lg">Church Center app</h2>
+      <p>Download the free app to give or set up automatic tithing from your phone.</p>
+      <div class="hero-actions">
+        <a class="btn btn-outline" href="https://apps.apple.com/us/app/church-center-app/id1357742931" rel="noopener">App Store</a>
+        <a class="btn btn-outline" href="https://play.google.com/store/apps/details?id=com.ministrycentered.churchcenter" rel="noopener">Google Play</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap prose-wrap"><div class="prose">{{ .Content }}</div></div>
+</section>
+{{ end }}

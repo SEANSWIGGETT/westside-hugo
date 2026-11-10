@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ partial "page-hero.html" . }}
+<section class="section">
+  <div class="wrap">
+    <div class="leaders">
+      {{ range hugo.Data.leaders }}
+      <article class="leader">
+        <div class="leader-photo">{{ partial "img.html" (dict "src" .photo "alt" (printf "Portrait of %s" .name) "sizes" "(min-width: 900px) 280px, 100vw") }}</div>
+        <div class="leader-body">
+          <p class="eyebrow">{{ .role }}</p>
+          <h2 class="h-lg">{{ .name }}</h2>
+          {{ range .bio }}<p>{{ . }}</p>{{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ partial "visit-cta.html" . }}
+{{ end }}

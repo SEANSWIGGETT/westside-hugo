@@ -1,0 +1,1 @@
+<div class="card">{{ with .Get "icon" }}<span class="expect-ic" aria-hidden="true">{{ . }}</span>{{ end }}{{ with .Get "title" }}<h3>{{ . }}</h3>{{ end }}{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>

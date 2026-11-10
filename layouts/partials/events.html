@@ -1,0 +1,24 @@
+{{- $today := now.Format "2006-01-02" -}}
+{{- $upcoming := slice -}}
+{{- range sort hugo.Data.events "date" -}}
+  {{- if ge (time.Format "2006-01-02" .date) $today -}}{{- $upcoming = $upcoming | append . -}}{{- end -}}
+{{- end -}}
+{{- with $upcoming -}}
+<ol class="events">
+  {{- range first ($.limit | default 20) . -}}
+  {{- $d := time.AsTime .date -}}
+  <li class="event">
+    <time class="event-date" datetime="{{ $d.Format "2006-01-02" }}">
+      <span class="m">{{ $d.Format "Jan" }}</span><span class="d">{{ $d.Format "2" }}</span>
+    </time>
+    <div class="event-body">
+      <h3>{{ .name }}</h3>
+      <p class="muted">{{ $d.Format "Monday" }}{{ with .time }} · {{ . }}{{ end }}{{ with .note }} · {{ . }}{{ end }}</p>
+    </div>
+    {{- if .url -}}<a class="event-link" href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ strings.TrimPrefix "/" .url | relURL }}{{ end }}"{{ if hasPrefix .url "http" }} rel="noopener"{{ end }}>{{ .cta | default "Details" }} →</a>{{- end -}}
+  </li>
+  {{- end -}}
+</ol>
+{{- else -}}
+<p class="muted">No upcoming events right now. Check back soon or follow us on Facebook.</p>
+{{- end -}}

@@ -1,0 +1,7 @@
+{{- /* {{< gallery "a.jpg|alt text, b.jpg|alt text" >}} */ -}}
+<div class="gallery gallery-inline">
+  {{- range split (.Get 0) "," -}}
+    {{- $parts := split (trim . " ") "|" -}}
+    {{- partial "img.html" (dict "src" (index $parts 0) "alt" (index $parts 1 | default "") "sizes" "(min-width: 900px) 33vw, 50vw") -}}
+  {{- end -}}
+</div>

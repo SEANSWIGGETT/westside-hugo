@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ partial "page-hero.html" . }}
+<section class="section">
+  <div class="wrap visit-grid">
+    <div class="visit-card">
+      <h2 class="h-lg">Westside Community Church</h2>
+      <p class="visit-addr">{{ site.Params.address1 }}<br>{{ site.Params.address2 }}</p>
+      <p><a href="tel:{{ replace site.Params.phone "-" "" }}">{{ site.Params.phone }}</a></p>
+      <div class="hero-actions">
+        <a class="btn btn-teal" href="{{ site.Params.mapsUrl }}" rel="noopener">Get directions</a>
+        <a class="btn btn-outline" href="{{ site.Params.facebook }}" rel="noopener">Facebook</a>
+      </div>
+      <hr>
+      <h3 class="h-sm">Sunday mornings</h3>
+      <ul class="monthly">
+        <li><span class="monthly-when">8:45 am</span><span>Light breakfast</span></li>
+        <li><span class="monthly-when">9:00 am</span><span>Sunday School for every age</span></li>
+        <li><span class="monthly-when">10:00 am</span><span>Worship · nursery &amp; Children’s Church available</span></li>
+      </ul>
+      <div class="prose">{{ .Content }}</div>
+    </div>
+    <div class="map" data-map="{{ site.Params.mapsEmbed }}">
+      {{ partial "img.html" (dict "src" "visit-2.jpg" "alt" "" "sizes" "(min-width: 860px) 55vw, 100vw") }}
+      <button class="btn btn-sun map-load" type="button" data-map-load>Show interactive map</button>
+    </div>
+  </div>
+  <div class="wrap gallery gallery-2">
+    {{ partial "img.html" (dict "src" "visit-1.jpg" "alt" "The Westside Community sign and cross by the road" "sizes" "(min-width: 700px) 50vw, 100vw") }}
+    {{ partial "img.html" (dict "src" "home-1.jpg" "alt" "A rainbow over the church" "sizes" "(min-width: 700px) 50vw, 100vw") }}
+  </div>
+</section>
+{{ end }}

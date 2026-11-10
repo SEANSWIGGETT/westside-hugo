@@ -1,0 +1,24 @@
+# Upcoming events. Past dates drop off automatically at build time.
+- date: 2026-11-02
+  name: "Spilling the Tea: Women's Bible Study"
+  time: "6:00 pm"
+- date: 2026-11-14
+  name: Breakfast Fundraiser
+  time: "8–11 am"
+  note: "$12 per plate"
+- date: 2026-11-22
+  name: Operation Christmas Child shoeboxes due
+  url: /serve/#operation-christmas-child
+- date: 2026-11-22
+  name: Thanksgiving Potluck Dinner
+  note: Following worship
+- date: 2026-12-12
+  name: Winter Market
+  time: "10 am – 3 pm"
+- date: 2026-12-16
+  name: Christmas Children's Program
+- date: 2027-05-02
+  name: Westside Derby Dash 5K
+  time: "2:00 pm"
+  url: https://runsignup.com/Race/KY/JunctionCity/Westside5KDerbyDash
+  cta: Register

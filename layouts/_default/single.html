@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ partial "page-hero.html" . }}
+<section class="section">
+  <div class="wrap prose-wrap">
+    <div class="prose">{{ .Content }}</div>
+  </div>
+</section>
+{{ if not .Params.nocta }}{{ partial "visit-cta.html" . }}{{ end }}
+{{ end }}

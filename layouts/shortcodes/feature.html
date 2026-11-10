@@ -1,0 +1,5 @@
+{{- /* Image + text block. {{< feature img="x.jpg" alt="..." id="anchor" flip="true" >}}markdown{{< /feature >}} */ -}}
+<div class="feature{{ if .Get "flip" }} flip{{ end }}"{{ with .Get "id" }} id="{{ . }}"{{ end }}>
+  <div class="feature-media">{{ partial "img.html" (dict "src" (.Get "img") "alt" (.Get "alt") "sizes" "(min-width: 900px) 45vw, 100vw") }}</div>
+  <div class="feature-body">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
+</div>

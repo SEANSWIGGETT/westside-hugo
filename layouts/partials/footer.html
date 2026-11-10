@@ -1,0 +1,31 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      {{ with resources.Get "images/logo.png" }}{{ with .Resize "280x webp" }}<img class="footer-logo" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Westside Community Church">{{ end }}{{ end }}
+      <p class="muted">An independent church rooted in Scripture and the Wesleyan tradition, serving Hustonville, Moreland and beyond.</p>
+    </div>
+    <div>
+      <h2 class="footer-h">Find us</h2>
+      <p>{{ site.Params.address1 }}<br>{{ site.Params.address2 }}</p>
+      <p><a href="tel:{{ replace site.Params.phone "-" "" }}">{{ site.Params.phone }}</a></p>
+      <p><a href="{{ site.Params.mapsUrl }}" rel="noopener">Get directions →</a></p>
+    </div>
+    <div>
+      <h2 class="footer-h">Sundays</h2>
+      <p>Sunday School · 9:00 am<br>Worship · 10:00 am</p>
+      <p><a href="{{ site.Params.liveUrl }}" rel="noopener">Watch on Facebook Live →</a></p>
+    </div>
+    <div>
+      <h2 class="footer-h">Follow</h2>
+      <ul class="social">
+        <li><a href="{{ site.Params.facebook }}" rel="noopener">Facebook</a></li>
+        <li><a href="{{ site.Params.instagram }}" rel="noopener">Instagram</a></li>
+        <li><a href="{{ site.Params.twitter }}" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <span>© {{ now.Year }} Westside Community Church</span>
+    <a href="{{ "give/" | relURL }}">Give online</a>
+  </div>
+</footer>

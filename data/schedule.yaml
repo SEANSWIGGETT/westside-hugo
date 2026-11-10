@@ -1,0 +1,50 @@
+# Weekly schedule (shown on the home page and Visit page)
+weekly:
+  - day: Sunday
+    items:
+      - time: "9:00 am"
+        name: Sunday School
+        note: Classes for every age. Light breakfast at 8:45.
+      - time: "10:00 am"
+        name: Morning Worship
+        note: Contemporary music with a live band. Streamed on Facebook Live.
+        live: true
+  - day: Monday
+    items:
+      - time: "9–10 am"
+        name: Moms in Prayer
+  - day: Tuesday
+    items:
+      - time: "6:30 pm"
+        name: Bible Study
+        note: In person or on Zoom.
+        zoom: true
+  - day: Wednesday
+    items:
+      - time: "6–7:30 pm"
+        name: Children & Youth
+        note: Meal at 6, lessons 6:30–7:30. Follows the Lincoln County school calendar.
+      - time: "6:45–7:30 pm"
+        name: Team Adult Bible Study
+  - day: Thursday
+    items:
+      - time: "5:30 pm"
+        name: Praise Team Practice
+
+monthly:
+  - when: 1st Sunday
+    name: Communion
+  - when: 2nd Saturday
+    name: Piece-Keepers Quilting
+    time: "9 am – noon"
+  - when: 2nd Sunday
+    name: Noisy Offering
+  - when: 3rd Monday
+    name: Adult Night Out
+    time: "6:30 pm"
+  - when: 3rd Thursday
+    name: Worship Design Lunch
+    time: "12–2 pm"
+  - when: 3rd Friday
+    name: HeartPrints
+    time: "6:30–8:30 pm"

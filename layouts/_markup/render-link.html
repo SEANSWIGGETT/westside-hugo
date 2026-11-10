@@ -1,0 +1,6 @@
+{{- /* Root-relative Markdown links ("/serve/") resolve against baseURL so the site works under a subpath. */ -}}
+{{- $href := .Destination -}}
+{{- $external := or (hasPrefix $href "http") (hasPrefix $href "mailto:") (hasPrefix $href "tel:") -}}
+{{- if hasPrefix $href "/" -}}{{- $href = strings.TrimPrefix "/" $href | relURL -}}{{- end -}}
+<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} rel="noopener"{{ end }}>{{ .Text }}</a>
+{{- /* chomp trailing newline */ -}}

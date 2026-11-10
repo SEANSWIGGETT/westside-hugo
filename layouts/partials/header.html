@@ -1,0 +1,27 @@
+{{ $current := . }}
+<header class="site-header" data-header>
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ "" | relURL }}" aria-label="{{ site.Title }} home">
+      {{ with resources.Get "images/logo.png" }}{{ with .Resize "320x webp" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Westside Community Church">{{ end }}{{ end }}
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span>
+    </button>
+    <nav id="site-nav" class="site-nav" data-nav>
+      <ul>
+        {{ range site.Menus.main }}
+          {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+          <li class="{{ if .HasChildren }}has-sub{{ end }}">
+            <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>{{ .Name }}</a>
+            {{ if .HasChildren }}
+              <ul class="sub">
+                {{ range .Children }}<li><a href="{{ .URL }}" {{ if $current.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>{{ .Name }}</a></li>{{ end }}
+              </ul>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+      <a class="btn btn-sun nav-give" href="{{ "give/" | relURL }}">Give</a>
+    </nav>
+  </div>
+</header>

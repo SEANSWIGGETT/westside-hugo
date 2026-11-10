@@ -1,0 +1,10 @@
+<section class="page-hero{{ if .Params.hero }} has-image{{ end }}">
+  {{ with .Params.hero }}
+    <div class="page-hero-media">{{ partial "img.html" (dict "src" . "alt" "" "sizes" "100vw" "eager" true) }}</div>
+  {{ end }}
+  <div class="wrap page-hero-inner">
+    {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lede }}<p class="lede">{{ . | markdownify }}</p>{{ end }}
+  </div>
+</section>

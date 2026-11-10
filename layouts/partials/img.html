@@ -1,0 +1,19 @@
+{{- /* Responsive WebP image from assets/images.
+  Usage: partial "img.html" (dict "src" "home-1.jpg" "alt" "..." "sizes" "100vw" "class" "" "eager" false) */ -}}
+{{- $img := resources.Get (printf "images/%s" .src) -}}
+{{- with $img -}}
+  {{- $widths := slice 480 800 1200 1800 -}}
+  {{- $set := slice -}}
+  {{- $fallback := "" -}}
+  {{- range $widths -}}
+    {{- if le . $img.Width -}}
+      {{- $r := $img.Resize (printf "%dx webp" .) -}}
+      {{- $set = $set | append (printf "%s %dw" $r.RelPermalink .) -}}
+      {{- $fallback = $r -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not $fallback -}}{{- $fallback = $img.Resize (printf "%dx webp" $img.Width) -}}{{- $set = slice (printf "%s %dw" $fallback.RelPermalink $img.Width) -}}{{- end -}}
+  <img src="{{ $fallback.RelPermalink }}" srcset="{{ delimit $set ", " }}" sizes="{{ $.sizes | default "100vw" }}" width="{{ $fallback.Width }}" height="{{ $fallback.Height }}" alt="{{ $.alt }}"{{ with $.class }} class="{{ . }}"{{ end }}{{ if $.eager }} fetchpriority="high"{{ else }} loading="lazy" decoding="async"{{ end }}>
+{{- else -}}
+  {{- errorf "img.html: missing image %s" .src -}}
+{{- end -}}

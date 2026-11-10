@@ -1,0 +1,131 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-media">
+    {{ partial "img.html" (dict "src" "visit-2.jpg" "alt" "The front of Westside Community Church under a blue sky" "sizes" "100vw" "eager" true) }}
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow eyebrow-light">Hustonville, Kentucky</p>
+    <h1 class="hero-title">Come as you are.<br><em>Stay for the family.</em></h1>
+    <p class="hero-lede">Contemporary worship, a live band, casual clothes and a seat saved for you every Sunday on US 127.</p>
+    <div class="hero-actions">
+      <a class="btn btn-sun" href="{{ "visit/" | relURL }}">Plan your visit</a>
+      <a class="btn btn-ghost" href="{{ site.Params.liveUrl }}" rel="noopener"><span class="live-dot" aria-hidden="true"></span>Watch live</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <dl class="service-bar">
+      <div><dt>Sunday School</dt><dd>9:00 am</dd></div>
+      <div><dt>Worship</dt><dd>10:00 am</dd></div>
+      <div><dt>Wednesday Kids &amp; Youth</dt><dd>6:00 pm</dd></div>
+      <div class="service-addr"><dt>Find us</dt><dd><a href="{{ site.Params.mapsUrl }}" rel="noopener">{{ site.Params.address1 }}</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Welcome</p>
+      <h2 class="h-xl">Rooted in Scripture. Open to everyone.</h2>
+    </div>
+    <div class="prose">
+      <p>Westside is an independent church committed to the historic foundations of the faith as revealed in God’s inspired, authoritative word and in Wesleyan/Arminian theology.</p>
+      <p><a class="link-arrow" href="{{ "about/" | relURL }}">More about Westside</a></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <ul class="expect">
+      <li><span class="expect-ic" aria-hidden="true">♪</span><h3>Live band</h3><p>Contemporary worship music every Sunday.</p></li>
+      <li><span class="expect-ic" aria-hidden="true">☺</span><h3>Casual attire</h3><p>Jeans are welcome. Come as you are.</p></li>
+      <li><span class="expect-ic" aria-hidden="true">✚</span><h3>Open communion</h3><p>First Sunday of each month, open to all.</p></li>
+      <li><span class="expect-ic" aria-hidden="true">✿</span><h3>Nursery &amp; kids</h3><p>Nursery every week; Children’s Church for PreK–5th.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-tint" id="this-week">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Every week</p>
+        <h2 class="h-xl">Find your rhythm</h2>
+      </div>
+      <p class="muted">Tuesday Bible Study is also on Zoom: meeting ID <strong>{{ site.Params.zoomId }}</strong>.</p>
+    </div>
+    <div class="week">
+      {{ range hugo.Data.schedule.weekly }}
+      <article class="day">
+        <h3 class="day-name">{{ .day }}</h3>
+        <ul>
+          {{ range .items }}
+          <li>
+            <span class="day-time">{{ .time }}</span>
+            <span class="day-what">{{ .name }}{{ if .live }} <a class="pill" href="{{ site.Params.liveUrl }}" rel="noopener">Live</a>{{ end }}{{ if .zoom }} <span class="pill pill-plum">Zoom</span>{{ end }}</span>
+            {{ with .note }}<span class="day-note">{{ . }}</span>{{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap events-layout">
+    <div>
+      <p class="eyebrow">Coming up</p>
+      <h2 class="h-xl">Upcoming events</h2>
+      <p class="muted">Breakfasts, markets, potlucks and the annual Derby Dash 5K. There’s always a reason to pull up a chair.</p>
+      {{ partial "img.html" (dict "src" "home-1.jpg" "alt" "A rainbow arching over the church and its fields" "sizes" "(min-width: 900px) 40vw, 100vw" "class" "rounded events-photo") }}
+    </div>
+    <div>
+      {{ partial "events.html" (dict "limit" 8) }}
+      <h3 class="h-sm mt">Each month</h3>
+      <ul class="monthly">
+        {{ range hugo.Data.schedule.monthly }}
+        <li><span class="monthly-when">{{ .when }}</span><span>{{ .name }}{{ with .time }} <span class="muted">· {{ . }}</span>{{ end }}</span></li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ink">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow eyebrow-light">Get connected</p>
+        <h2 class="h-xl">There’s a place for you here</h2>
+      </div>
+    </div>
+    <div class="paths">
+      {{ $paths := slice
+        (dict "t" "Kids & Youth" "d" "Wednesday nights, Sunday school and summer fun for PreK through 12th grade." "u" "/children-and-youth/" "i" "kids-1.jpg")
+        (dict "t" "Ministries" "d" "Bible studies, Sunday school for every age, and Wednesday discipleship." "u" "/ministries/" "i" "min-3.jpg")
+        (dict "t" "Serve" "d" "Guatemala missions, Hustonville Elementary, Operation Christmas Child and more." "u" "/serve/" "i" "serve-guatemala.jpg")
+        (dict "t" "Community Park" "d" "A public park on US 127, open dawn to dusk for the whole community." "u" "/park/" "i" "park-3.jpg")
+      }}
+      {{ range $paths }}
+      <a class="path" href="{{ strings.TrimPrefix "/" .u | relURL }}">
+        {{ partial "img.html" (dict "src" .i "alt" "" "sizes" "(min-width: 900px) 25vw, (min-width: 600px) 50vw, 100vw") }}
+        <div class="path-body"><h3>{{ .t }}</h3><p>{{ .d }}</p><span class="path-go" aria-hidden="true">→</span></div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap gallery">
+    {{ partial "img.html" (dict "src" "home-3.jpg" "alt" "A full sanctuary during Sunday worship" "sizes" "(min-width: 900px) 33vw, 50vw") }}
+    {{ partial "img.html" (dict "src" "kids-2.jpg" "alt" "A child playing in foam at a summer kids event" "sizes" "(min-width: 900px) 33vw, 50vw") }}
+    {{ partial "img.html" (dict "src" "min-1.jpg" "alt" "The cross and stained glass window above the stage" "sizes" "(min-width: 900px) 33vw, 50vw") }}
+    {{ partial "img.html" (dict "src" "home-2.jpg" "alt" "A church member getting pied at a fundraiser" "sizes" "(min-width: 900px) 33vw, 50vw") }}
+    {{ partial "img.html" (dict "src" "serve-1.jpg" "alt" "Volunteers serving a meal in the fellowship hall" "sizes" "(min-width: 900px) 33vw, 50vw") }}
+    {{ partial "img.html" (dict "src" "kids-3.jpg" "alt" "A child being baptized" "sizes" "(min-width: 900px) 33vw, 50vw") }}
+  </div>
+</section>
+
+{{ partial "visit-cta.html" . }}
+{{ end }}

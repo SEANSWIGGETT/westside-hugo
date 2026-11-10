@@ -1,0 +1,13 @@
+<section class="section cta-band">
+  <div class="wrap cta-inner">
+    <div>
+      <p class="eyebrow eyebrow-light">We’d love to meet you</p>
+      <h2 class="h-xl">Join us this Sunday at 10.</h2>
+      <p>{{ site.Params.address1 }}, {{ site.Params.address2 }} · <a href="tel:{{ replace site.Params.phone "-" "" }}">{{ site.Params.phone }}</a></p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn btn-sun" href="{{ site.Params.mapsUrl }}" rel="noopener">Get directions</a>
+      <a class="btn btn-ghost" href="{{ "give/" | relURL }}">Give online</a>
+    </div>
+  </div>
+</section>
