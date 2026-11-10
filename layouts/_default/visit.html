@@ -6,6 +6,9 @@
       <h2 class="h-lg">Westside Community Church</h2>
       <p class="visit-addr">{{ site.Params.address1 }}<br>{{ site.Params.address2 }}</p>
       <p><a href="tel:{{ replace site.Params.phone "-" "" }}">{{ site.Params.phone }}</a></p>
+      <ul class="tags" aria-label="Good to know">
+        <li>Casual dress</li><li>Live band</li><li>Nursery</li><li>Children’s Church PreK–5th</li><li>Breakfast at 8:45</li><li>Streamed on Facebook</li>
+      </ul>
       <div class="hero-actions">
         <a class="btn btn-teal" href="{{ site.Params.mapsUrl }}" rel="noopener">Get directions</a>
         <a class="btn btn-outline" href="{{ site.Params.facebook }}" rel="noopener">Facebook</a>
@@ -22,6 +25,23 @@
     <div class="map" data-map="{{ site.Params.mapsEmbed }}">
       {{ partial "img.html" (dict "src" "visit-2.jpg" "alt" "" "sizes" "(min-width: 860px) 55vw, 100vw") }}
       <button class="btn btn-sun map-load" type="button" data-map-load>Show interactive map</button>
+    </div>
+  </div>
+  <div class="wrap faq-wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">First time?</p>
+        <h2 class="h-xl">What to expect</h2>
+      </div>
+      <p class="muted">Quick answers to the questions people ask before their first Sunday.</p>
+    </div>
+    <div class="faq">
+      <details open><summary>What should I wear?</summary><p>Whatever you’re comfortable in. Attire is casual: come as you are.</p></details>
+      <details><summary>What is worship like?</summary><p>Contemporary music led by a live band. Worship begins at 10:00 am, and the nursery and Children’s Church are available during the service.</p></details>
+      <details><summary>What about my kids?</summary><p>A nursery is available during worship, and Children’s Church meets in the basement during the service for Preschool through 5th grade during the school year. Sunday School at 9:00 am has a class for every age.</p></details>
+      <details><summary>Can I take communion?</summary><p>Yes. Communion is served the first Sunday of each month and is open to everyone, regardless of age or membership.</p></details>
+      <details><summary>Is there anything before the service?</summary><p>A light breakfast is available at 8:45 am, followed by Sunday School at 9:00 am.</p></details>
+      <details><summary>Can I watch online?</summary><p>Yes. Sunday worship streams on <a href="{{ site.Params.liveUrl }}" rel="noopener">Facebook Live</a>, and Tuesday Bible Study at 6:30 pm is also on Zoom (meeting ID {{ site.Params.zoomId }}).</p></details>
     </div>
   </div>
   <div class="wrap gallery gallery-2">

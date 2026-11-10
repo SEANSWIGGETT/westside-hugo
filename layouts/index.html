@@ -7,7 +7,7 @@
   </div>
   <div class="wrap hero-inner">
     <p class="eyebrow eyebrow-light">Hustonville, Kentucky</p>
-    <h1 class="hero-title">Come as you are.<br><em>Stay for the family.</em></h1>
+    <h1 class="hero-title"><span class="line"><span>Come as you are.</span></span> <span class="line"><em>Stay for the family.</em></span></h1>
     <p class="hero-lede">Contemporary worship, a live band, casual clothes and a seat saved for you every Sunday on US 127.</p>
     <div class="hero-actions">
       <a class="btn btn-sun" href="{{ "visit/" | relURL }}">Plan your visit</a>
@@ -44,6 +44,13 @@
     </ul>
   </div>
 </section>
+
+{{- $tick := slice "Sunday School · 9:00 am" "Worship · 10:00 am" "Wednesday Kids & Youth · 6:00 pm" "Everyone welcome" "2875 US Highway 127, Hustonville" }}
+<div class="ticker" role="marquee" aria-label="Sunday School 9 am, Worship 10 am, Wednesday Kids and Youth 6 pm">
+  <div class="ticker-track">
+    {{ range seq 2 }}<div class="ticker-group"{{ if eq . 2 }} aria-hidden="true"{{ end }}>{{ range $tick }}<span>{{ . }}</span><span class="ticker-star" aria-hidden="true">✦</span>{{ end }}</div>{{ end }}
+  </div>
+</div>
 
 <section class="section" id="this-week">
   <div class="wrap"><div class="sheet">
@@ -93,6 +100,35 @@
   </div>
 </section>
 
+<section class="section section-tight">
+  <div class="wrap">
+    <div class="watch">
+      <div class="watch-media">
+        {{ partial "img.html" (dict "src" "home-3.jpg" "alt" "The congregation during Sunday worship" "sizes" "(min-width: 900px) 45vw, 100vw") }}
+        <span class="watch-badge"><span class="live-dot" aria-hidden="true"></span>Live Sundays 10:00 am</span>
+      </div>
+      <div class="watch-body">
+        <p class="eyebrow">Can’t make it Sunday?</p>
+        <h2 class="h-xl">Worship with us from anywhere.</h2>
+        <p class="muted">Sunday worship streams on Facebook Live every week, and Tuesday Bible Study meets in person and on Zoom (meeting ID {{ site.Params.zoomId }}).</p>
+        <div class="hero-actions">
+          <a class="btn btn-sun" href="{{ site.Params.liveUrl }}" rel="noopener">Watch on Facebook</a>
+          <a class="btn btn-ghost" href="{{ "ministries/" | relURL }}">Bible studies</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section verse-section" aria-label="Scripture">
+  <div class="wrap">
+    <blockquote class="verse">
+      <p>{{ range split "Come unto me, all ye that labour and are heavy laden, and I will give you rest." " " }}<span>{{ . }}</span> {{ end }}</p>
+      <footer>Matthew 11:28</footer>
+    </blockquote>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -120,7 +156,7 @@
 
 <section class="section">
   <div class="wrap gallery">
-    {{ partial "img.html" (dict "src" "home-3.jpg" "alt" "A full sanctuary during Sunday worship" "sizes" "(min-width: 900px) 33vw, 50vw") }}
+    {{ partial "img.html" (dict "src" "serve-guatemala.jpg" "alt" "Handmade quilts draped over the pews" "sizes" "(min-width: 900px) 33vw, 50vw") }}
     {{ partial "img.html" (dict "src" "kids-2.jpg" "alt" "A child playing in foam at a summer kids event" "sizes" "(min-width: 900px) 33vw, 50vw") }}
     {{ partial "img.html" (dict "src" "min-1.jpg" "alt" "The cross and stained glass window above the stage" "sizes" "(min-width: 900px) 33vw, 50vw") }}
     {{ partial "img.html" (dict "src" "home-2.jpg" "alt" "A church member getting pied at a fundraiser" "sizes" "(min-width: 900px) 33vw, 50vw") }}

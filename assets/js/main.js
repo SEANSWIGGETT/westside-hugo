@@ -1,7 +1,14 @@
 (() => {
   const header = document.querySelector('[data-header]');
   const toggle = document.querySelector('[data-nav-toggle]');
-  const onScroll = () => header && header.classList.toggle('is-scrolled', window.scrollY > 24);
+  const newHere = document.querySelector('[data-new-here]');
+  const onScroll = () => {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 24);
+    if (newHere) {
+      const nearEnd = window.innerHeight + window.scrollY > document.documentElement.scrollHeight - 420;
+      newHere.classList.toggle('is-shown', window.scrollY > 640 && !nearEnd);
+    }
+  };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 

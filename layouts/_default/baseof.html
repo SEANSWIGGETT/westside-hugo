@@ -34,6 +34,7 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
+  {{ if ne .Layout "visit" }}<a class="new-here" href="{{ "visit/" | relURL }}" data-new-here><span class="new-here-dot" aria-hidden="true"></span>New here? <strong>Plan a visit</strong></a>{{ end }}
   {{ $js := resources.Get "js/main.js" | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" defer></script>
 </body>

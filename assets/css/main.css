@@ -390,6 +390,86 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 1.75rem 0; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
 
+/* ---------- Patterns from the church-site research ---------- */
+/* Tighter, larger display type */
+h1, h2 { letter-spacing: -.025em; }
+.h-xl { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.02; }
+.hero-title { letter-spacing: -.035em; }
+
+/* Hero headline rises in line by line */
+.hero-title .line { display: block; overflow: hidden; padding-bottom: .08em; }
+.hero-title .line > * { display: inline-block; animation: rise-in 1.1s var(--ease) both; }
+.hero-title .line:nth-child(2) > * { animation-delay: .18s; }
+.hero-inner .eyebrow, .hero-lede, .hero-actions { animation: fade-up .9s var(--ease) both; }
+.hero-lede { animation-delay: .35s; }
+.hero-actions { animation-delay: .5s; }
+@keyframes rise-in { from { transform: translateY(105%); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(14px); } }
+
+/* Service-times ticker */
+.ticker { overflow: hidden; border-block: 1px solid var(--glass-line); background: rgb(246 185 43 / .1); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 1.05rem 0; -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.ticker-track { display: flex; width: max-content; animation: ticker 38s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-group { display: flex; align-items: center; gap: 1.75rem; padding-right: 1.75rem; font: 500 clamp(1.15rem, 2.2vw, 1.6rem)/1 var(--serif); white-space: nowrap; color: var(--cream); }
+.ticker-star { color: var(--sun); font-size: .8em; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* Watch online */
+.section-tight { padding-block: clamp(1.5rem, 4vw, 3rem); }
+.watch { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; background: var(--paper); border: 1px solid var(--glass-line); border-radius: 28px; padding: clamp(1rem, 2vw, 1.5rem); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: var(--shadow); }
+.watch-media { position: relative; border-radius: 20px; overflow: hidden; }
+.watch-media img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.watch-badge { position: absolute; left: 1rem; top: 1rem; display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .85rem; border-radius: 999px; background: rgb(6 26 28 / .78); backdrop-filter: blur(6px); font-weight: 700; font-size: .85rem; color: #fff; }
+.watch-body { padding: clamp(.5rem, 2vw, 1.5rem); }
+@media (max-width: 860px) { .watch { grid-template-columns: 1fr; } }
+
+/* Scripture statement: words light up as the verse scrolls into view */
+.verse-section { padding-block: clamp(4rem, 10vw, 8rem); }
+.verse { margin: 0 auto; max-width: 1000px; text-align: center; }
+.verse p { font: 500 clamp(2rem, 5.4vw, 4.4rem)/1.08 var(--serif); letter-spacing: -.025em; margin: 0 auto 1.5rem; max-width: 20ch; color: #fff; text-wrap: balance; }
+.verse footer { font: 700 .8rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--sun); }
+@supports (animation-timeline: view()) {
+  .verse p span { animation: word-light linear both; animation-timeline: view(); animation-range: cover 10% cover 45%; }
+  .verse p span:nth-child(3n+2) { animation-range: cover 14% cover 49%; }
+  .verse p span:nth-child(3n) { animation-range: cover 18% cover 53%; }
+  @keyframes word-light { from { color: rgb(255 255 255 / .2); } to { color: #fff; } }
+  .verse p span:nth-last-child(-n+3) { animation-name: word-light-gold; }
+  @keyframes word-light-gold { from { color: rgb(246 185 43 / .2); } to { color: var(--gold-text); } }
+}
+
+/* Get-connected cards swipe sideways on phones */
+@media (max-width: 520px) {
+  .paths { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: .85rem; margin-inline: calc(var(--gutter) * -1); padding: 0 var(--gutter) .5rem; scrollbar-width: none; }
+  .paths::-webkit-scrollbar { display: none; }
+  .path { flex: 0 0 82%; scroll-snap-align: center; aspect-ratio: 3/4; }
+}
+
+/* Floating "New here?" pill */
+.new-here {
+  position: fixed; left: 50%; bottom: 1.25rem; z-index: 45; display: inline-flex; align-items: center; gap: .6rem;
+  padding: .8rem 1.25rem; border-radius: 999px; text-decoration: none; color: var(--cream); font-size: .95rem; white-space: nowrap;
+  background: rgb(6 26 28 / .82); border: 1px solid rgb(246 185 43 / .45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px -10px rgb(0 0 0 / .6); translate: -50% 160%; opacity: 0; transition: translate .45s var(--ease), opacity .3s;
+}
+.new-here strong { color: var(--gold-text); }
+.new-here:hover { color: #fff; border-color: var(--sun); }
+.new-here.is-shown { translate: -50% 0; opacity: 1; }
+.new-here-dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--sun); box-shadow: 0 0 0 4px rgb(246 185 43 / .25); }
+body.nav-open .new-here { opacity: 0; pointer-events: none; }
+
+/* Visit page: quick-fact tags and FAQ */
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: .45rem; padding: 0; margin: 1rem 0 0; }
+.tags li { font-size: .8rem; font-weight: 600; padding: .4rem .75rem; border-radius: 999px; background: rgb(255 255 255 / .07); border: 1px solid var(--glass-line); }
+.faq-wrap { margin-top: clamp(3.5rem, 8vw, 6rem); max-width: 980px; }
+.faq { display: grid; gap: .65rem; }
+.faq details { background: var(--paper); border: 1px solid var(--glass-line); border-radius: var(--radius); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: border-color .25s; }
+.faq details[open] { border-color: rgb(246 185 43 / .45); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.15rem 1.4rem; font: 600 1.2rem/1.3 var(--serif); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: rgb(246 185 43 / .15); color: var(--gold-text); font: 400 1.3rem/1 var(--sans); transition: rotate .3s var(--ease); }
+.faq details[open] summary::after { rotate: 45deg; }
+.faq details p { margin: 0; padding: 0 1.4rem 1.25rem; color: var(--cream-2); max-width: 70ch; }
+
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.is-in { opacity: 1; transform: none; }
