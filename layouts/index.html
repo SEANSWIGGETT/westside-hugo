@@ -102,21 +102,31 @@
 
 <section class="section section-tight">
   <div class="wrap">
+    {{- with hugo.Data.sermons }}{{ $l := .latest }}{{ $d := time.AsTime $l.date }}
     <div class="watch">
-      <div class="watch-media">
-        {{ partial "img.html" (dict "src" "home-3.jpg" "alt" "The congregation during Sunday worship" "sizes" "(min-width: 900px) 45vw, 100vw") }}
-        <span class="watch-badge"><span class="live-dot" aria-hidden="true"></span>Live Sundays 10:00 am</span>
-      </div>
+      <a class="watch-media" href="{{ $l.url }}" rel="noopener" aria-label="Watch {{ $l.title }} on Facebook">
+        {{ partial "img.html" (dict "src" "home-3.jpg" "alt" "" "sizes" "(min-width: 900px) 45vw, 100vw") }}
+        <span class="watch-badge"><span class="live-dot" aria-hidden="true"></span>Latest message · {{ $d.Format "Jan 2" }}</span>
+        <span class="watch-play" aria-hidden="true"></span>
+        {{ with $l.length }}<span class="watch-length">{{ . }}</span>{{ end }}
+      </a>
       <div class="watch-body">
-        <p class="eyebrow">Can’t make it Sunday?</p>
-        <h2 class="h-xl">Worship with us from anywhere.</h2>
-        <p class="muted">Sunday worship streams on Facebook Live every week, and Tuesday Bible Study meets in person and on Zoom (meeting ID {{ site.Params.zoomId }}).</p>
+        <p class="eyebrow">{{ with .series }}{{ . }} series{{ else }}Latest message{{ end }}</p>
+        <h2 class="h-lg watch-title">{{ $l.title }}</h2>
+        <p class="muted">Streamed live {{ $d.Format "Monday, January 2" }}. Can’t make it Sunday? Worship streams on Facebook Live every week at 10:00 am.</p>
         <div class="hero-actions">
-          <a class="btn btn-sun" href="{{ site.Params.liveUrl }}" rel="noopener">Watch on Facebook</a>
-          <a class="btn btn-ghost" href="{{ "ministries/" | relURL }}">Bible studies</a>
+          <a class="btn btn-sun" href="{{ $l.url }}" rel="noopener">Watch the message</a>
+          <a class="btn btn-ghost" href="{{ site.Params.facebook }}" rel="noopener">All videos</a>
         </div>
+        {{ with .earlier }}
+        <h3 class="h-sm mt">Earlier in the series</h3>
+        <ol class="earlier">
+          {{ range first 4 . }}<li><a href="{{ .url }}" rel="noopener"><span>{{ .title }}</span><span class="earlier-go" aria-hidden="true">↗</span></a></li>{{ end }}
+        </ol>
+        {{ end }}
       </div>
     </div>
+    {{- end }}
   </div>
 </section>
 

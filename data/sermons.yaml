@@ -1,0 +1,18 @@
+# Latest message card on the home page.
+# Each week: copy the new Facebook video link, update `latest`, and move the old one to the top of `earlier`.
+# Tip: open the video on Facebook, click Share > Copy link, and paste it as `url`.
+series: Everyday Holiness
+latest:
+  title: How Christ Followers Live Differently From the World
+  date: 2026-11-08
+  length: 1 hr 20 min
+  url: https://www.facebook.com/100066286074061/videos/1446525123522720/
+earlier:
+  - title: Suffering and Endurance (All Saints’ Day)
+    url: https://www.facebook.com/100066286074061/videos/3862769853865224/
+  - title: "Integrity: Living an Undivided Life (Pastor Appreciation)"
+    url: https://www.facebook.com/100066286074061/videos/2135423607181813/
+  - title: Obedience and Carrying the Cross
+    url: https://www.facebook.com/100066286074061/videos/1670205254724962/
+  - title: Anger and Our Words
+    url: https://www.facebook.com/100066286074061/videos/3048905585449306/

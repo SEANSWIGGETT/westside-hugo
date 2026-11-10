@@ -421,6 +421,24 @@ h1, h2 { letter-spacing: -.025em; }
 .watch-media img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
 .watch-badge { position: absolute; left: 1rem; top: 1rem; display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .85rem; border-radius: 999px; background: rgb(6 26 28 / .78); backdrop-filter: blur(6px); font-weight: 700; font-size: .85rem; color: #fff; }
 .watch-body { padding: clamp(.5rem, 2vw, 1.5rem); }
+.watch-media { display: block; align-self: stretch; }
+.watch-media img { height: 100%; min-height: 280px; transition: transform .6s var(--ease); }
+.watch-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgb(4 18 20 / .6)); }
+.watch-media:hover img { transform: scale(1.04); }
+.watch-play { position: absolute; left: 50%; top: 50%; z-index: 1; width: 4.5rem; height: 4.5rem; translate: -50% -50%; border-radius: 50%; background: var(--sun); box-shadow: 0 0 0 10px rgb(246 185 43 / .22), 0 12px 30px -8px rgb(0 0 0 / .6); transition: transform .3s var(--ease), box-shadow .3s; }
+.watch-play::before { content: ""; position: absolute; left: 54%; top: 50%; translate: -50% -50%; border-style: solid; border-width: .75rem 0 .75rem 1.2rem; border-color: transparent transparent transparent var(--dark); }
+.watch-media:hover .watch-play { transform: scale(1.08); box-shadow: 0 0 0 16px rgb(246 185 43 / .18), 0 12px 30px -8px rgb(0 0 0 / .6); }
+.watch-badge, .watch-length { z-index: 1; }
+.watch-length { position: absolute; right: 1rem; bottom: 1rem; padding: .35rem .65rem; border-radius: 8px; background: rgb(6 26 28 / .78); font-size: .8rem; font-weight: 700; color: #fff; }
+.watch-title { font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.05; }
+.earlier { list-style: none; margin: .75rem 0 0; padding: 0; counter-reset: ep; }
+.earlier li { counter-increment: ep; border-bottom: 1px solid var(--glass-line); }
+.earlier li:last-child { border-bottom: 0; }
+.earlier a { display: grid; grid-template-columns: 1.8rem 1fr auto; gap: .75rem; align-items: center; padding: .7rem 0; color: var(--cream); text-decoration: none; font-weight: 600; font-size: .97rem; }
+.earlier a::before { content: counter(ep, decimal-leading-zero); font: 600 .8rem/1 var(--sans); color: var(--sun); letter-spacing: .04em; }
+.earlier a:hover { color: #fff; }
+.earlier-go { color: var(--gold-text); transition: translate .2s var(--ease); }
+.earlier a:hover .earlier-go { translate: 3px -3px; }
 @media (max-width: 860px) { .watch { grid-template-columns: 1fr; } }
 
 /* Scripture statement: words light up as the verse scrolls into view */

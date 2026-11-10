@@ -14,6 +14,7 @@ Then open http://localhost:1313. Build for production with `hugo --gc --minify` 
 
 | What | File |
 |---|---|
+| Latest sermon card on the home page (update weekly, see below) | `data/sermons.yaml` |
 | Upcoming events (past dates hide automatically at build time) | `data/events.yaml` |
 | Weekly and monthly schedule | `data/schedule.yaml` |
 | Leaders and bios | `data/leaders.yaml` |
@@ -22,6 +23,14 @@ Then open http://localhost:1313. Build for production with `hugo --gc --minify` 
 | Page text | `content/*.md` |
 | Photos | `assets/images/` (Hugo resizes them to responsive WebP) |
 | Styles | `assets/css/main.css` |
+
+### Updating the latest sermon each week (about a minute, works from a phone)
+
+1. On Facebook, open Sunday's live video, tap **Share → Copy link**.
+2. On github.com, open `data/sermons.yaml` in this repo and tap the pencil (Edit) icon.
+3. Copy the current `latest` title and url into a new first entry under `earlier`.
+4. Replace `latest` with the new title, date (YYYY-MM-DD), length and the copied link.
+5. Tap **Commit changes**. The site updates itself in about a minute.
 
 Shortcodes for page content: `feature` (photo + text row), `gallery`, `cards`/`card`.
 
