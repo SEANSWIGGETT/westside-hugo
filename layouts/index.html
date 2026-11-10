@@ -2,6 +2,8 @@
 <section class="hero">
   <div class="hero-media">
     {{ partial "img.html" (dict "src" "visit-2.jpg" "alt" "The front of Westside Community Church under a blue sky" "sizes" "100vw" "eager" true) }}
+    <span class="hero-rays" aria-hidden="true"></span>
+    <span class="hero-motes" aria-hidden="true">{{ range seq 14 }}<i style="--x:{{ mod (mul . 37) 100 }}%;--d:{{ mod (mul . 7) 13 }}s;--s:{{ add 2 (mod . 3) }}px"></i>{{ end }}</span>
   </div>
   <div class="wrap hero-inner">
     <p class="eyebrow eyebrow-light">Hustonville, Kentucky</p>
@@ -43,8 +45,8 @@
   </div>
 </section>
 
-<section class="section section-tint" id="this-week">
-  <div class="wrap">
+<section class="section" id="this-week">
+  <div class="wrap"><div class="sheet">
     <div class="section-head">
       <div>
         <p class="eyebrow">Every week</p>
@@ -68,7 +70,7 @@
       </article>
       {{ end }}
     </div>
-  </div>
+  </div></div>
 </section>
 
 <section class="section">
@@ -91,7 +93,7 @@
   </div>
 </section>
 
-<section class="section section-ink">
+<section class="section">
   <div class="wrap">
     <div class="section-head">
       <div>

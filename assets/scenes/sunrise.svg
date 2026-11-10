@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice">
+<style>
+.rays{transform-box:view-box;transform-origin:800px 560px;animation:spin 140s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sun{animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.75}}
+.cloud{animation:drift 60s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(180px)}}
+.fly{animation:fly 36s linear infinite}
+@keyframes fly{from{transform:translateX(-160px)}to{transform:translateX(1760px)}}
+.wing{transform-box:fill-box;transform-origin:50% 100%;animation:flap .9s ease-in-out infinite alternate}
+.w2{transform-origin:0 100%}
+@keyframes flap{to{transform:scaleY(-.55)}}
+.mote{fill:#ffe2a0;opacity:0;animation:rise 11s linear infinite}
+@keyframes rise{12%{opacity:.85}75%{opacity:.5}100%{transform:translateY(-320px);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#160f33"/><stop offset=".38" stop-color="#43296e"/><stop offset=".62" stop-color="#a5507a"/><stop offset=".8" stop-color="#ef8f45"/><stop offset="1" stop-color="#ffd27a"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3c4" stop-opacity=".95"/><stop offset=".25" stop-color="#ffd27a" stop-opacity=".6"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+<linearGradient id="ray" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff0c0" stop-opacity=".22"/><stop offset="1" stop-color="#fff0c0" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<g class="rays" fill="#ffe7a8" opacity=".09"><path d="M800 560L775 -700L825 -700Z" transform="rotate(0 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(20 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(40 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(60 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(80 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(100 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(120 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(140 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(160 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(180 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(200 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(220 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(240 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(260 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(280 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(300 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(320 800 560)"/><path d="M800 560L775 -700L825 -700Z" transform="rotate(340 800 560)"/></g>
+<circle class="sun" cx="800" cy="560" r="420" fill="url(#glow)"/>
+<circle cx="800" cy="560" r="96" fill="#fff4cf"/>
+<g fill="#fff" opacity=".13">
+  <g class="cloud"><ellipse cx="260" cy="230" rx="170" ry="26"/><ellipse cx="330" cy="212" rx="90" ry="24"/></g>
+  <g class="cloud" style="animation-delay:-25s"><ellipse cx="1180" cy="170" rx="210" ry="22"/><ellipse cx="1110" cy="155" rx="100" ry="22"/></g>
+  <g class="cloud" style="animation-delay:-40s"><ellipse cx="700" cy="330" rx="150" ry="16"/></g>
+</g>
+<g fill="#f7efe0" opacity=".85"><g class="fly" style="animation-duration:34s;animation-delay:0s"><g transform="translate(0 250) scale(1)"><g class="wing"><path d="M2 0C-6-30 -30-46-56-44C-36-30-22-14-12 2Z"/></g><path d="M0 0C-14-4-26-2-34 6C-24 4-14 6-6 10C-2 16 6 18 14 16C20 15 26 11 30 6L40 4L31 1C26-4 18-6 10-4Z"/><g class="wing w2"><path d="M8 2C10-26 26-48 52-56C40-36 30-18 20 4Z"/></g></g></g><g class="fly" style="animation-duration:42s;animation-delay:-14s"><g transform="translate(0 200) scale(0.7)"><g class="wing"><path d="M2 0C-6-30 -30-46-56-44C-36-30-22-14-12 2Z"/></g><path d="M0 0C-14-4-26-2-34 6C-24 4-14 6-6 10C-2 16 6 18 14 16C20 15 26 11 30 6L40 4L31 1C26-4 18-6 10-4Z"/><g class="wing w2"><path d="M8 2C10-26 26-48 52-56C40-36 30-18 20 4Z"/></g></g></g><g class="fly" style="animation-duration:48s;animation-delay:-30s"><g transform="translate(0 320) scale(0.55)"><g class="wing"><path d="M2 0C-6-30 -30-46-56-44C-36-30-22-14-12 2Z"/></g><path d="M0 0C-14-4-26-2-34 6C-24 4-14 6-6 10C-2 16 6 18 14 16C20 15 26 11 30 6L40 4L31 1C26-4 18-6 10-4Z"/><g class="wing w2"><path d="M8 2C10-26 26-48 52-56C40-36 30-18 20 4Z"/></g></g></g></g>
+<path d="M0 640Q260 560 520 610T1040 590T1600 620V900H0Z" fill="#3b2a55" opacity=".85"/>
+<path d="M0 700Q400 560 800 600T1600 680V900H0Z" fill="#14504f"/>
+<g fill="#0a2f2e">
+  <rect x="790" y="410" width="20" height="200" rx="3"/><rect x="738" y="455" width="124" height="18" rx="3"/>
+  <rect x="633" y="500" width="14" height="128" rx="2"/><rect x="598" y="530" width="84" height="12" rx="2"/>
+  <rect x="953" y="500" width="14" height="128" rx="2"/><rect x="918" y="530" width="84" height="12" rx="2"/>
+</g>
+<path d="M0 760Q300 660 640 720T1300 700T1600 740V900H0Z" fill="#0b3d3c"/>
+<path d="M0 830Q420 760 860 810T1600 800V900H0Z" fill="#072a29"/>
+<g><circle class="mote" cx="683" cy="831" r="2.8" style="animation-delay:-0.6s"/><circle class="mote" cx="666" cy="788" r="1.6" style="animation-delay:-11.4s"/><circle class="mote" cx="1143" cy="828" r="2.4" style="animation-delay:-11.2s"/><circle class="mote" cx="744" cy="664" r="3.3" style="animation-delay:-4.8s"/><circle class="mote" cx="1104" cy="713" r="3.2" style="animation-delay:-0.3s"/><circle class="mote" cx="1047" cy="764" r="1.8" style="animation-delay:-5.7s"/><circle class="mote" cx="685" cy="646" r="3.4" style="animation-delay:-0.3s"/><circle class="mote" cx="780" cy="798" r="3" style="animation-delay:-3.6s"/><circle class="mote" cx="412" cy="676" r="1.7" style="animation-delay:-0.8s"/><circle class="mote" cx="1128" cy="673" r="2.6" style="animation-delay:-11.2s"/><circle class="mote" cx="1179" cy="785" r="1.7" style="animation-delay:-0.8s"/><circle class="mote" cx="897" cy="851" r="2.9" style="animation-delay:-6.8s"/><circle class="mote" cx="1130" cy="672" r="1.9" style="animation-delay:-10.5s"/><circle class="mote" cx="1007" cy="841" r="2.7" style="animation-delay:-9.8s"/><circle class="mote" cx="996" cy="680" r="2.8" style="animation-delay:-4.1s"/><circle class="mote" cx="1023" cy="643" r="2.4" style="animation-delay:-1.5s"/><circle class="mote" cx="383" cy="673" r="3.1" style="animation-delay:-3.4s"/><circle class="mote" cx="324" cy="819" r="2.6" style="animation-delay:-7.8s"/><circle class="mote" cx="1093" cy="845" r="1.8" style="animation-delay:-1s"/><circle class="mote" cx="741" cy="664" r="3.3" style="animation-delay:-5.1s"/><circle class="mote" cx="609" cy="724" r="1.9" style="animation-delay:-4s"/><circle class="mote" cx="795" cy="837" r="2.7" style="animation-delay:-2.4s"/></g>
+</svg>
