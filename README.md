@@ -28,4 +28,10 @@ Shortcodes for page content: `feature` (photo + text row), `gallery`, `cards`/`c
 Old Wix URLs (`/about-3`, `/team-4`, `/about-2`, `/family-discipleship-night`, `/outreach`,
 `/westside-comm-park`, `/visit-us`, `/donate-now`) redirect to the new pages through `aliases`.
 
-Because past events drop off at build time, rebuild the site now and then (or on a schedule) so the events list stays current.
+## Deploy
+
+Pushing to `main` deploys to GitHub Pages: https://seanswiggett.github.io/westside-hugo/
+(`.github/workflows/deploy.yml`). The workflow also runs every Monday so past events drop off, and can be run by hand from the repo's Actions tab.
+
+The preview carries `noindex` (set by `HUGO_PARAMS_NOINDEX` in the workflow). When it replaces westsideky.com: remove that env line,
+add the custom domain under the repo's Settings → Pages, and point the domain's DNS at GitHub Pages.
