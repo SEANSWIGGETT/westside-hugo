@@ -144,7 +144,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 1.75rem 0; }
   .nav-open .bars::after { transform: translateY(-6px) rotate(-45deg); }
   .site-nav {
     position: fixed; inset: 0; z-index: 55; flex-direction: column; align-items: stretch; justify-content: flex-start;
-    padding: 104px var(--gutter) 2rem; background: rgb(5 24 26 / .97); overflow-y: auto;
+    padding: 104px var(--gutter) 2rem; background: rgb(5 24 26); overflow-y: auto;
     opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s;
   }
   .nav-open .site-nav { opacity: 1; visibility: visible; }
@@ -153,11 +153,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 1.75rem 0; }
   .site-nav > ul a { font-family: var(--serif); font-size: 1.6rem; padding: .8rem 0; border-radius: 0; background: none !important; }
   .has-sub > a::after { display: none; }
   .sub { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; background: none; padding: 0 0 .8rem 1rem !important; }
-  .sub a { font-family: var(--sans); font-size: 1.05rem; padding: .35rem 0; }
-  .site-nav .nav-give { margin-top: 1.5rem; justify-content: center; padding: 1rem; font-size: 1.05rem; }
+  .site-nav .sub a { font-family: var(--sans); font-size: 1.05rem; padding: .35rem 0; }
+  .site-nav .nav-give { display: flex; margin-top: 1.5rem; justify-content: center; padding: 1rem; font-size: 1.05rem; }
   .brand { position: relative; z-index: 60; }
   .brand img { width: 118px; }
   body.nav-open { overflow: hidden; }
+  /* backdrop-filter makes the header a containing block for fixed children, which would trap the
+     full-screen menu inside the header bar; drop it while the menu is open */
+  body.nav-open .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgb(5 24 26); border-bottom-color: transparent; }
 }
 
 /* ---------- Home hero ---------- */
